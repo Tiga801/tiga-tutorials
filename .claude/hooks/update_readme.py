@@ -7,6 +7,7 @@
 import os
 import re
 from datetime import datetime
+from urllib.parse import quote
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 README_PATH = os.path.join(BASE_DIR, "README.md")
@@ -37,7 +38,7 @@ def extract_info(filepath):
         para_lines = []
         for line in lines:
             stripped = line.strip()
-            if stripped.startswith("#") or stripped.startswith("---") or stripped.startswith("==="):
+            if stripped.startswith("#") or stripped.startswith(">") or stripped.startswith("---") or stripped.startswith("==="):
                 if in_paragraph:
                     break
                 continue
@@ -84,7 +85,8 @@ def build_table(section_dir, rel_dir):
         title, description = extract_info(filepath)
         mtime = get_mtime(filepath)
         rel_path = os.path.relpath(filepath, BASE_DIR).replace("\\", "/")
-        rows.append(f"| [{filename}]({rel_path}) | {title} | {mtime} | {description} |")
+        encoded_path = quote(rel_path, safe="/")
+        rows.append(f"| [{filename}]({encoded_path}) | {title} | {mtime} | {description} |")
 
     return "\n".join(rows)
 

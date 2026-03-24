@@ -16,8 +16,8 @@
 <!-- AUTO-INDEX:tutorials:START -->
 | 文件 | 标题 | 最后修改 | 描述 |
 | ---- | ---- | -------- | ---- |
-| [Ubuntu 服务器初始配置.md](tutorials/Linux/Ubuntu 服务器初始配置.md) | Ubuntu 服务器初始配置 | 2026-03-24 | > **环境**：Ubuntu Server（适用于 aarch64 / x86_64） > **最后更新**：2026-03-24 |
-| [openEuler 服务器初始配置.md](tutorials/Linux/openEuler 服务器初始配置.md) | openEuler 服务器初始配置 | 2026-03-24 | > **环境**：openEuler / aarch64 (ARM 架构) > **最后更新**：2026-03-24 |
+| [Ubuntu 服务器初始配置.md](tutorials/Linux/Ubuntu%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%88%9D%E5%A7%8B%E9%85%8D%E7%BD%AE.md) | Ubuntu 服务器初始配置 | 2026-03-24 | Ubuntu 服务器初始化配置清单，涵盖用户管理、Docker 权限、SSH 免密登录、Zsh 定制和 Clash 代理部署。内容保持简洁，直接提供可执行指令。 |
+| [openEuler 服务器初始配置.md](tutorials/Linux/openEuler%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%88%9D%E5%A7%8B%E9%85%8D%E7%BD%AE.md) | openEuler 服务器初始配置 | 2026-03-24 | 针对 openEuler (aarch64/ARM 架构) 的完整服务器初始配置教程，涵盖用户管理、Docker 权限、SSH 免密登录、Zsh 定制（含 fzf 修复）及 Mihomo 代理配... |
 <!-- AUTO-INDEX:tutorials:END -->
 
 ---
