@@ -65,10 +65,13 @@ def get_mtime(filepath):
 
 
 def build_table(section_dir, rel_dir):
-    """扫描目录，生成 Markdown 表格字符串。"""
-    md_files = sorted(
-        f for f in os.listdir(section_dir) if f.endswith(".md")
-    )
+    """递归扫描目录，生成 Markdown 表格字符串。"""
+    md_files = []
+    for root, _, files in os.walk(section_dir):
+        for f in files:
+            if f.endswith(".md"):
+                md_files.append(os.path.join(root, f))
+    md_files.sort()
 
     if not md_files:
         return "> 暂无文件"
@@ -76,11 +79,11 @@ def build_table(section_dir, rel_dir):
     rows = ["| 文件 | 标题 | 最后修改 | 描述 |",
             "| ---- | ---- | -------- | ---- |"]
 
-    for filename in md_files:
-        filepath = os.path.join(section_dir, filename)
+    for filepath in md_files:
+        filename = os.path.basename(filepath)
         title, description = extract_info(filepath)
         mtime = get_mtime(filepath)
-        rel_path = f"{rel_dir}/{filename}"
+        rel_path = os.path.relpath(filepath, BASE_DIR).replace("\\", "/")
         rows.append(f"| [{filename}]({rel_path}) | {title} | {mtime} | {description} |")
 
     return "\n".join(rows)

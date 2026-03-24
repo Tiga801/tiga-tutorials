@@ -14,7 +14,10 @@
 ## 教程 (tutorials)
 
 <!-- AUTO-INDEX:tutorials:START -->
-> 暂无文件
+| 文件 | 标题 | 最后修改 | 描述 |
+| ---- | ---- | -------- | ---- |
+| [Ubuntu 服务器初始配置.md](tutorials/Linux/Ubuntu 服务器初始配置.md) | Ubuntu 服务器初始配置 | 2026-03-24 | > **环境**：Ubuntu Server（适用于 aarch64 / x86_64） > **最后更新**：2026-03-24 |
+| [openEuler 服务器初始配置.md](tutorials/Linux/openEuler 服务器初始配置.md) | openEuler 服务器初始配置 | 2026-03-24 | > **环境**：openEuler / aarch64 (ARM 架构) > **最后更新**：2026-03-24 |
 <!-- AUTO-INDEX:tutorials:END -->
 
 ---
