@@ -42,4 +42,4 @@ python3 .claude/hooks/update_readme.py
 ```
 
 - 第一个 `# 标题` 会作为 README 索引的"标题"列
-- 第一个非空、非标题段落（前 100 字）会作为"描述"列
+- 第一个非空、非标题、非 blockquote（`>` 开头）段落（前 100 字）会作为"描述"列

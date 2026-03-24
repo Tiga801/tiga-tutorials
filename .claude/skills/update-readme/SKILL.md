@@ -25,7 +25,7 @@ description: Use when the user wants to manually update the README.md index, or 
 | 索引字段 | 来源 |
 | -------- | ---- |
 | 标题 | 文件内第一个 `# 标题`（无则用文件名） |
-| 描述 | 第一个非空、非标题段落（前 100 字） |
+| 描述 | 第一个非空、非标题、非 blockquote（`>`）段落（前 100 字） |
 | 最后修改 | 文件系统 mtime |
 
 **只有上述字段发生变化时，README 才需要更新。**
