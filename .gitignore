@@ -5,3 +5,6 @@ __pycache__/
 *.swp
 *.tmp
 .env
+
+# Claude local file
+.claude/settings.local.json
