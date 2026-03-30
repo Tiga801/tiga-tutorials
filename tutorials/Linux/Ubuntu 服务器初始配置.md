@@ -88,9 +88,9 @@ mkdir -p ~/.config/mihomo
 mkdir -p ~/clash && cd ~/clash
 
 # 下载 mihomo 核心 (aarch64 版本)
-wget https://github.com/MetaCubeX/mihomo/releases/download/v1.19.20/mihomo-linux-arm64-v1.19.20.gz
-gunzip mihomo-linux-arm64-v1.19.20.gz
-mv mihomo-linux-arm64-v1.19.20 mihomo
+wget https://github.com/MetaCubeX/mihomo/releases/download/v1.19.20/mihomo-linux-amd64-v1.19.20.gz
+gunzip mihomo-linux-amd64-v1.19.20.gz
+mv mihomo-linux-amd64-v1.19.20 mihomo
 chmod +x mihomo
 ```
 
