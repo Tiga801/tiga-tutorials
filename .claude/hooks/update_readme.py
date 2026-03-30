@@ -66,27 +66,41 @@ def get_mtime(filepath):
 
 
 def build_table(section_dir, rel_dir):
-    """递归扫描目录，生成 Markdown 表格字符串。"""
+    """递归扫描目录，生成按子目录分组的 Markdown 表格字符串。"""
     md_files = []
     for root, _, files in os.walk(section_dir):
-        for f in files:
+        for f in sorted(files):
             if f.endswith(".md"):
                 md_files.append(os.path.join(root, f))
-    md_files.sort()
 
     if not md_files:
         return "> 暂无文件"
 
+    # 按相对于 section_dir 的父目录路径分组
+    groups = {}
+    for filepath in md_files:
+        parent = os.path.dirname(filepath)
+        group_key = os.path.relpath(parent, section_dir)
+        if group_key == ".":
+            group_key = ""
+        groups.setdefault(group_key, []).append(filepath)
+
+    # 根目录文件优先，子目录按路径字母序排列
+    sorted_keys = sorted(groups.keys(), key=lambda x: (x != "", x))
+
     rows = ["| 文件 | 标题 | 最后修改 | 描述 |",
             "| ---- | ---- | -------- | ---- |"]
 
-    for filepath in md_files:
-        filename = os.path.basename(filepath)
-        title, description = extract_info(filepath)
-        mtime = get_mtime(filepath)
-        rel_path = os.path.relpath(filepath, BASE_DIR).replace("\\", "/")
-        encoded_path = quote(rel_path, safe="/")
-        rows.append(f"| [{filename}]({encoded_path}) | {title} | {mtime} | {description} |")
+    for group_key in sorted_keys:
+        if group_key:
+            rows.append(f"| **{group_key}/** | | | |")
+        for filepath in groups[group_key]:
+            filename = os.path.basename(filepath)
+            title, description = extract_info(filepath)
+            mtime = get_mtime(filepath)
+            rel_path = os.path.relpath(filepath, BASE_DIR).replace("\\", "/")
+            encoded_path = quote(rel_path, safe="/")
+            rows.append(f"| [{filename}]({encoded_path}) | {title} | {mtime} | {description} |")
 
     return "\n".join(rows)
 

@@ -30,6 +30,25 @@ description: Use when the user wants to manually update the README.md index, or 
 
 **只有上述字段发生变化时，README 才需要更新。**
 
+## 子目录分组规则
+
+`tutorials/` 和 `blog-summaries/` 下支持最多两级子目录。表格按子目录分组展示：
+
+- **直接位于 section 根目录的文件**：无分组标题，直接列出
+- **位于子目录的文件**：在组前插入一行 `| **子目录路径/** | | | |` 作为分组标题
+- 分组顺序：根目录文件优先，子目录按路径字母序排列；组内文件按文件名字母序排列
+
+示例（`tutorials/Linux/` 和 `tutorials/ultralytics/` 各有文件时）：
+
+```
+| **Linux/** | | | |
+| [Ubuntu...](url) | Ubuntu 服务器初始配置 | 2026-03-27 | ... |
+| **ultralytics/** | | | |
+| [Ultralytics...](url) | ... | ... | ... |
+```
+
+**以下情况也需要更新 README**：新增/删除子目录，或文件在子目录间移动。
+
 ## 注意事项
 
 - 脚本会扫描 **所有** `tutorials/` 和 `blog-summaries/` 中的 `.md` 文件，不限于本次修改的文件
